@@ -1,0 +1,49 @@
+[package]
+name = "altius-reth"
+version = "0.1.0"
+edition = "2021"
+authors = ["Altius Team"]
+description = "A complete Ethereum node using Altius parallel execution engine"
+license = "MIT OR Apache-2.0"
+
+[[bin]]
+name = "altius-reth"
+path = "src/main.rs"
+
+[dependencies]
+reth-cli-util.workspace = true
+reth.workspace = true
+reth-node-ethereum.workspace = true
+reth-ethereum = { workspace = true, features = ["node-api", "pool"] }
+reth-ethereum-cli.workspace = true
+reth-node-builder.workspace = true
+reth-evm-altius.workspace = true
+reth-ethereum-payload-builder.workspace = true
+reth-trie-db.workspace = true
+reth-ethereum-engine-primitives.workspace = true
+reth-provider.workspace = true
+reth-node-api.workspace = true
+reth-ethereum-primitives.workspace = true
+alloy-rpc-types-eth.workspace = true
+tracing.workspace = true
+tracing-chrome.workspace = true
+tracing-subscriber.workspace = true
+altius-revm.workspace = true
+
+# CLI and async runtime
+clap = { version = "4.0", features = ["derive", "env"] }
+tokio = { version = "1.21", features = ["full"] }
+eyre = "0.6"
+
+
+[features]
+default = []
+jemalloc = ["reth-cli-util/jemalloc"]
+jemalloc-prof = ["reth-cli-util/jemalloc-prof"]
+min-error-logs = ["tracing/max_level_error"]
+min-warn-logs = ["tracing/max_level_warn"]
+min-info-logs = ["tracing/max_level_info"]
+min-debug-logs = ["tracing/max_level_debug"]
+min-trace-logs = ["tracing/max_level_trace"]
+opcode-counting = ["altius-revm/opcode-counting"]
+metric = ["altius-revm/metric"]
