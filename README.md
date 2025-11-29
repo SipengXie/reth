@@ -1,4 +1,4 @@
-# reth
+# reth -> Notice: Global_pool is not enabled yet, just modify main.rs to enable it!
 
 [![bench status](https://github.com/paradigmxyz/reth/actions/workflows/bench.yml/badge.svg)](https://github.com/paradigmxyz/reth/actions/workflows/bench.yml)
 [![CI status](https://github.com/paradigmxyz/reth/workflows/unit/badge.svg)][gh-ci]
